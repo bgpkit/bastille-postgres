@@ -1,6 +1,8 @@
+# https://www.postgresql.org/docs/15/kernel-resources.html
 CONFIG set sysvshm=new
 RESTART
-ARG version=14
+
+ARG version=15
 PKG postgresql${version}-server
 SYSRC postgresql_enable=YES
 CMD if [ ! -e /var/db/postgres/data${version} ];then service postgresql initdb; service postgresql start; fi
